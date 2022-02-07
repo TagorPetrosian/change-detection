@@ -1,9 +1,9 @@
-import { ApplicationRef, Component } from '@angular/core';
+import { ApplicationRef, Component, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   /**
@@ -11,12 +11,11 @@ export class AppComponent {
    */
   constructor(appRef: ApplicationRef) {
     const originalTick = appRef.tick;
-    appRef.tick = function() {
+    appRef.tick = function () {
       const returnedValue = originalTick.apply(this);
-      console.log('change detection');
+      console.log('tick');
       return returnedValue;
-    }
-    
+    };
   }
 
   public tasks = [
@@ -44,11 +43,16 @@ export class AppComponent {
       title: 'et porro tempora',
       completed: true,
     },
-  ]
+  ];
 
   // ng on change prev value and new value
 
-  onClick() :void{
-    this.tasks.forEach(task => task.title = `title ${task.id}`)
+  onClick(): void {
+    // this.tasks.forEach((task) => (task.title = `title ${task.id}`));
+    // this.tasks = this.tasks.map((task) => ({
+    //   ...task,
+    //   title: `title ${task.id}`,
+    // }));
+    // console.log('compare', this.tasks === this.tasks);
   }
 }
