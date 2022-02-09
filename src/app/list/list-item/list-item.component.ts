@@ -1,10 +1,17 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Task } from 'src/app/task.model';
 
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListItemComponent implements OnInit {
   @Input() item = new Task();
