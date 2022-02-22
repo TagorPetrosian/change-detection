@@ -22,9 +22,14 @@ export class ListItemComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     const { currentValue, previousValue } = changes;
     if (currentValue != previousValue) {
-      // console.log(`item changed ${currentValue}`, changes);
+      console.log(`item changed ${currentValue}`, changes);
     }
 
-    // console.log('item changes', changes);
+    console.log('item changes', changes);
+  }
+
+  changeMe() {
+    this.item.title = "I've been changed";
+    console.log(`change clicked ${this.item.id}`);
   }
 }

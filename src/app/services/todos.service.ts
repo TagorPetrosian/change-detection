@@ -42,10 +42,17 @@ export class TodosService {
   updateOne(task: Task): void {
     const { id } = task;
     const tasks = this._tasks.getValue();
-    tasks.forEach((item ) => {
-      if(item.id == id){
-        item = task
+    tasks.forEach((item) => {
+      if (item.id == id) {
+        item = task;
       }
-    })
+    });
+  }
+
+  modify(): void {
+    const tasks = this._tasks.getValue();
+    this._tasks.next(
+      tasks.map((task) => ({ ...task, title: `${task.id} - ${task.title}` }))
+    );
   }
 }

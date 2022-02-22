@@ -25,11 +25,11 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.tasks$ = this.todoService.tasks$;
-    this.todoService.tasks$.subscribe();
   }
   // ng on change prev value and new value
 
-  onClick(): void {
+  changeAll(): void {
+    this.todoService.modify();
     // this.tasks$.forEach((task: Task) => (task.title = `title ${task.id}`));
     // this.tasks$ = this.tasks$..map((task: Task) => ({
     //   ...task,
