@@ -1,4 +1,4 @@
-import { Task } from '../task.model';
+import { Task } from '../models/task.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';

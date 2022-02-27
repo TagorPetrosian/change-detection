@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Task } from 'src/app/task.model';
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-list-item-grandchild',

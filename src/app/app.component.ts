@@ -1,7 +1,9 @@
-import { Task } from './task.model';
+import { Task } from './models/task.model';
 import { ApplicationRef, Component, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodosService } from './services/todos.service';
+import { Message } from './models/message.model';
+import { MessagesService } from './services/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,15 @@ import { TodosService } from './services/todos.service';
 })
 export class AppComponent {
   public tasks$!: Observable<Task[]>;
+  public messages$!: Observable<Message[]>;
   /**
    *
    */
-  constructor(appRef: ApplicationRef, private todoService: TodosService) {
+  constructor(
+    appRef: ApplicationRef,
+    private todoService: TodosService,
+    private messagesService: MessagesService
+  ) {
     const originalTick = appRef.tick;
     appRef.tick = function () {
       const returnedValue = originalTick.apply(this);
@@ -25,6 +32,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.tasks$ = this.todoService.tasks$;
+    this.messages$ = this.messagesService.messages$;
   }
   // ng on change prev value and new value
 
