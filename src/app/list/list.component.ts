@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Observable } from 'rxjs';
+import { looseIdentical } from 'src/utils';
 import { Task } from '../models/task.model';
 
 @Component({
@@ -30,15 +31,8 @@ export class ListComponent implements OnInit {
       // );
       console.log(
         'identical',
-        this.looseIdentical(chng.currentValue, chng.previousValue)
+        looseIdentical(chng.currentValue, chng.previousValue)
       );
     }
-  }
-
-  looseIdentical(a: any, b: any): boolean {
-    return (
-      a === b ||
-      (typeof a === 'number' && typeof b === 'number' && isNaN(a) && isNaN(b))
-    );
   }
 }

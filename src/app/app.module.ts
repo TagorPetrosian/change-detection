@@ -10,6 +10,8 @@ import { ListItemGrandchildComponent } from './list/list-item/list-item-child/li
 import { MessagesListComponent } from './messages-list/messages-list.component';
 import { MessageComponent } from './messages-list/message/message.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FormsModule } from '@angular/forms';
+import { MessageContentComponent } from './messages-list/message/message-content/message-content.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ListItemGrandchildComponent,
     MessagesListComponent,
     MessageComponent,
+    MessageContentComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, ScrollingModule],
+  imports: [BrowserModule, HttpClientModule, ScrollingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,24 +1,16 @@
 <!-- <ul>
-  <cdk-virtual-scroll-viewport
-    itemSize="20px"
-    class="messages example-viewport"
-  >
-
-    <ng-container
-      *cdkVirtualFor="let message of messages"
-      class="message example-item"
-    >
-      <li class="message">
-        {{ message.data }}
-      </li>
-    </ng-container>
-  </cdk-virtual-scroll-viewport>
-</ul> -->
-<ul>
   <cdk-virtual-scroll-viewport itemSize="20" class="messages">
     <ng-container *cdkVirtualFor="let item of messages" class="message">
       <li>{{ item.data }}</li>
-      <!-- {{ item.data }} -->
     </ng-container>
   </cdk-virtual-scroll-viewport>
-</ul>
+</ul> -->
+
+<div class="messages-container">
+  <ul>
+    <app-message
+      *ngFor="let message of messages"
+      [message]="message"
+    ></app-message>
+  </ul>
+</div>

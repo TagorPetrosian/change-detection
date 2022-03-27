@@ -1,6 +1,7 @@
 <h1>test</h1>
 <!-- <app-list [list]="tasks$ | async"> </app-list>
 <button (click)="changeAll()">Change ALL</button> -->
+<input type="text" [(ngModel)]="message" (keydown)="onKeydown($event)" />
 <app-messages-list
   [messages]="messages$ | async"
   class="list-container"

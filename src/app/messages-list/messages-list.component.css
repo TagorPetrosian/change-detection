@@ -1,8 +1,17 @@
-ul {
-  height: 100%;
-}
 :host {
   display: block;
+}
+
+ul {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  list-style: none;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .example-item {
